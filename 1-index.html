@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>מאמן תיקים · חשיבה אבחונית מודרכת</title>
+<meta name="description" content="תרגול לימודי בחשיבה אבחונית לפסיכולוגים חינוכיים בתחילת דרכם: קוראים מקרה מובנה, כותבים מחשבות, ורק אז נחשפים לשיקולים מקצועיים." />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#14171c" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f6f66'/%3E%3Cpath d='M18 20h28v5H18zm0 10h28v5H18zm0 10h18v5H18z' fill='%23f7f4ee'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false"><path d="M5 4h11l4 4v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path class="fold" d="M15 4v5h5"/><path class="lines" d="M8 13h8M8 17h5"/></svg>
+      </span>
+      <span class="brand-text">
+        <strong>מאמן תיקים</strong>
+        <span class="brand-sub">חשיבה אבחונית מודרכת · חשוב, כתוב, ואז גלה</span>
+      </span>
+    </div>
+    <button type="button" id="reset-btn" class="btn btn-ghost btn-sm">
+      <span aria-hidden="true">↺</span> איפוס התרגול
+    </button>
+  </div>
+</header>
+
+<div class="wrap progress-wrap">
+  <nav class="stepper" aria-label="התקדמות בתרגול">
+    <ol id="stepper-list" class="stepper-list"></ol>
+  </nav>
+  <div class="progress" role="progressbar" id="progressbar" aria-label="התקדמות בתרגול" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="בתחילת התרגול">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <p class="progress-label" id="progress-label"></p>
+</div>
+
+<main id="main" class="wrap" tabindex="-1">
+  <noscript>
+    <div class="notice notice-warn">
+      <strong>נדרש JavaScript.</strong> התרגול מתנהל בדפדפן בלבד, ללא שרת. יש לאפשר JavaScript כדי להתחיל.
+    </div>
+  </noscript>
+
+  <div id="app" hidden>
+    <article id="stage-panel" class="card stage-card" tabindex="-1" aria-live="polite"></article>
+
+    <nav class="stage-nav" aria-label="ניווט בין שלבים">
+      <button type="button" id="prev-btn" class="btn btn-ghost">
+        <span aria-hidden="true">→</span> לשלב הקודם
+      </button>
+      <button type="button" id="next-btn" class="btn btn-primary">
+        לשלב הבא <span aria-hidden="true">←</span>
+      </button>
+    </nav>
+  </div>
+
+  <p class="save-hint" id="save-hint" role="status" aria-live="polite"></p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="disclaimer">
+      <strong>הבהרה:</strong> המקרה בדוי לחלוטין ונכתב לצורכי לימוד בלבד. השיקולים המוצגים כאן הם חומר להתבוננות ולדיון בהדרכה, ואינם המלצה אבחונית, פרוטוקול בדיקה או תחליף לשיקול דעת מקצועי ולהיכרות ישירה עם ילד, משפחה וצוות.
+    </p>
+    <p class="footer-meta">הכתיבה שלכם נשמרת רק בדפדפן הזה (אחסון מקומי) ואינה נשלחת לשום מקום.</p>
+  </div>
+</footer>
+
+<dialog id="reset-dialog" class="dialog" aria-labelledby="reset-dialog-title" aria-describedby="reset-dialog-desc">
+  <form method="dialog" class="dialog-form">
+    <h2 id="reset-dialog-title">לאפס את התרגול?</h2>
+    <p id="reset-dialog-desc">הפעולה תמחק את כל מה שכתבתם בשלבים, תסגור את השיקולים שנחשפו ותחזיר אתכם לשלב הראשון. לא ניתן לבטל.</p>
+    <div class="dialog-actions">
+      <button type="submit" value="cancel" class="btn btn-ghost" id="reset-cancel">ביטול</button>
+      <button type="submit" value="confirm" class="btn btn-danger" id="reset-confirm">כן, אפס הכול</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
